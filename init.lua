@@ -151,11 +151,16 @@ require('lazy').setup({
   },
 
   {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
+    -- Ayu Colorscheme 
+    'Shatur/neovim-ayu',
+    name = "ayu",
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'onedark'
+      require('ayu').setup({
+        mirage = true,
+        overrides = {},
+      })
+      require('ayu').colorscheme()
     end,
   },
 
@@ -166,7 +171,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'onedark',
+        theme = 'ayu',
         component_separators = '|',
         section_separators = '',
       },
