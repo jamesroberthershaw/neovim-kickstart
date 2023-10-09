@@ -220,6 +220,20 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
+  {
+    'nvim-tree/nvim-web-devicons',
+  },
+
+ {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+     'nvim-tree/nvim-web-devicons', -- optional, for file icons
+    },
+    config = function()
+      require('nvim-tree').setup({})
+    end,
+    tag = 'nightly' -- optional, updated every week. (see issue #1193)
+  },
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -331,6 +345,10 @@ vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { de
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
+
+-- Enable shortcut to toggle nvim-tree file browser
+vim.api.nvim_set_keymap('n', '<leader>tf', ':NvimTreeFocus<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>th', ':NvimTreeClose<CR>', {noremap = true, silent = true})
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
