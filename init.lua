@@ -350,6 +350,10 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 vim.api.nvim_set_keymap('n', '<leader>tf', ':NvimTreeFocus<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<leader>th', ':NvimTreeClose<CR>', {noremap = true, silent = true})
 
+-- Highlight whitespace
+vim.api.nvim_set_keymap('n', '<leader>hu', ':se hls | /\\_s <CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>hd', ':se nohls<CR>', {noremap = true, silent = true})
+
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
 -- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
